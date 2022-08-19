@@ -49,6 +49,7 @@ export class ClickEventHandler extends BaseEventHandler {
         x: clientX - leftOffset,
         y: clientY - topOffset,
       }
+      // 这一块是判断点击的点是否在该区域内的
       if (renderMode === 'fill') isIn = api(shape.path2D, params.x, params.y)
       else if (renderMode === 'stroke') isIn = api(params.x, params.y)
       if (isIn) {
