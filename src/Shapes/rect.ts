@@ -10,7 +10,7 @@ export interface RectOptions {
   h: number
   zIndex: number
 }
-
+// 这里需要对shapeInfo进行 副作用的处理 也就是做个proxy
 export class Rect extends BaseShape<RectShape, RectOptions> {
   shapeInfo = {} as RectShape
   id = Symbol('Rect')
