@@ -2,7 +2,10 @@ import type { CanvasEngine } from '../canvasEngine'
 import type { EventFn, EventName, ShapeClassType } from '../types'
 import type { BaseEventHandler } from './base'
 import { ClickEventHandler } from './click'
-
+import { DblClickEventHandler } from './dblClick'
+import { MouseDownEventHandler } from './mouseDown'
+import { MouseMoveEventHandler } from './mouseMove'
+import { MouseUpEventHandler } from './mouseUp'
 // 索引形式 TODO:书写key:事件名 value：事件的操作
 type HandlerInstanceCache = {
   [key in EventName]: BaseEventHandler;
@@ -22,13 +25,16 @@ export class EventHandler {
   /**
    * @author Zhao YuanDa
    * @parms: canvasEngine引擎对象
-   * @description: 初始化事件系统（入口函数）
+   * @description: 初始化事件系统（入口函数） 这里面注入一些事件 后期要补上mouseEventHandler的操作
    * @date 2022-08-07 09:58
    */
   initHandlerInstance(engine: CanvasEngine) {
     this.handlerInstances = {
       click: new ClickEventHandler(engine),
-      dblclick: new ClickEventHandler(engine),
+      dblclick: new DblClickEventHandler(engine),
+      mousedown: new MouseDownEventHandler(engine),
+      mouseup: new MouseUpEventHandler(engine),
+      mousemove: new MouseMoveEventHandler(engine),
     }
   }
 

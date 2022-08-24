@@ -24,8 +24,15 @@
     engine2.render(rect1, {
       color: 'purple'
     })
-    engine2.addEventListener(rect1, EventName.click, () => {
-      alert('rect1 clicked')
+    // engine2.addEventListener(rect1, 'mousedown', (e) => {
+    //   alert('rect1 mousedown')
+    //   console.log('rect1 mousedown', e);
+    // })
+    engine2.addEventListener(rect1, 'mousedown', (e) => {
+      console.log('rect1 mousedown', e);
+    })
+    engine2.addEventListener(rect1, 'mouseup', (e) => {
+      console.log('rect1 mouseup', e);
     })
       // const engine3 = new CanvasEngine({
       //   w: '200',
