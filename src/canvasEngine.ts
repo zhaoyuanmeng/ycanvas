@@ -257,7 +257,7 @@ export class CanvasEngine {
    * @description: //异步渲染 跟vue3 里面nextTick类似
    * @date 2022-08-07 10:57
    */
-  private runRenderTask() {
+  public runRenderTask() {
     if (!this.isRender) {
       this.isRender = true
       Promise.resolve().then(() => {

@@ -18,6 +18,7 @@
       h: '200',
       canvasTarget: '#canvas2'
     })
+    let isDrag = false
     // a object and five params are all valid
     // we support two modes
     const rect1 = new Rect(10, 20, 80, 80, 0)
@@ -29,23 +30,27 @@
     //   console.log('rect1 mousedown', e);
     // })
     engine2.addEventListener(rect1, 'mousedown', (e) => {
-      console.log('rect1 mousedown', e);
+      isDrag = true
+      console.log('rect1 mousedown', isDrag);
     })
     engine2.addEventListener(rect1, 'mouseup', (e) => {
-      console.log('rect1 mouseup', e);
+      isDrag = false
+      console.log('rect1 mouseup', isDrag);
     })
-      // const engine3 = new CanvasEngine({
-      //   w: '200',
-      //   h: '200',
-      //   canvasTarget: 'canvas3'
-      // })
-      // const rect2 = new Rect(10, 20, 80, 80, 0)
-      // engine3.render(rect2, {
-      //   color: 'red'
-      // })
-      // engine3.addEventListener(rect2, EventName.click, () => {
-      //   alert('rect1 clicked')
-      // })
+    engine2.addEventListener(rect1, 'mousemove', (e) => {
+      if(isDrag){
+        // 这里面调用更新的逻辑
+        let option = {
+          x:30,
+          y:40,
+          w:100,
+          h:100,
+          zIndex:0,
+        }
+        rect1.setOption(engine2,option)
+      }
+    })
+ 
   </script>
 </body>
 
