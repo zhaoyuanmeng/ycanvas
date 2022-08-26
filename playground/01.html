@@ -18,27 +18,28 @@
       h: '200',
       canvasTarget: '#canvas2'
     })
-    // 这里rect 里面代表着 起始点（10，20）然后长宽是80
-    const rect1 = new Rect(10, 20, 80, 80, 0)
-    let preRect = rect1
-    engine2.render(rect1, {
-      color: 'purple'
+    engine2.addEventListener(rect1, 'mousedown', (e) => {
+      isDrag = true
+      console.log('rect1 mousedown', isDrag);
     })
-    let isDown = false
-    engine2.addEventListener(preRect, 'mousedown', (e) => {
-      isDown = true;     // 鼠标按下时，设置isDown为true，此时移动鼠标才认为是有效。
-      console.log("鼠标按下")
+    engine2.addEventListener(rect1, 'mouseup', (e) => {
+      isDrag = false
+      console.log('rect1 mouseup', isDrag);
     })
-    engine2.addEventListener(preRect, 'mouseup', (e) => {
-      isDown = false
-      console.log("鼠标抬起")
-    })
-    engine2.addEventListener(preRect, 'mousemove', (e) => {
-      // 这里我们需要不断的去重新绘制convas
-      if (isDown) {
-        // 重新去生成一些东西 主要思路就是更改shapeInfo的信息 而不是从头去让他失效
+    engine2.addEventListener(rect1, 'mousemove', (e) => {
+      if (isDrag) {
+        // 这里面调用更新的逻辑
+        let option = {
+          x: 30,
+          y: 40,
+          w: 100,
+          h: 100,
+          zIndex: 0,
+        }
+        rect1.setOption(engine2, option)
       }
     })
+
   </script>
 </body>
 
