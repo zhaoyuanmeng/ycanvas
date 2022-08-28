@@ -1,7 +1,7 @@
 {
   "name": "ycanvas",
   "type": "module",
-  "version": "1.1.0-beta.2",
+  "version": "1.1.0-beta.3",
   "description": "a framework to help you build your canvas library easily",
   "keywords": [],
   "license": "ISC",
