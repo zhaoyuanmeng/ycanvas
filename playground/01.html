@@ -18,6 +18,17 @@
       h: '200',
       canvasTarget: '#canvas2'
     })
+    
+    const rect1 = new Rect({
+      x: 0,
+      y: 100,
+      w: 100,
+      h: 100,
+    });
+    engine2.render(rect1, {
+      color: "red",
+    });
+    let isDrag = false
     engine2.addEventListener(rect1, 'mousedown', (e) => {
       isDrag = true
       console.log('rect1 mousedown', isDrag);
